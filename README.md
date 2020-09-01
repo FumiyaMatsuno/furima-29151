@@ -26,7 +26,7 @@ Things you may want to cover:
 |名前| first_name       | string       | null: false       |
 |苗字（かな）| family_name_kana    | string     | null: false      |
 |名前（かな）| first_name_kana | string   | null: false    |
-|生年月日| birth_day   | date     | null: false     |
+|生年月日| birth_day   | date     | null: false     |　
 ### Association
 * has_many :items
 * has_many :comments
