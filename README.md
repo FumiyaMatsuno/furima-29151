@@ -53,7 +53,7 @@ Things you may want to cover:
 | card_id  | integer | null: false, uniqueness: true   |
 ### Association
 * belongs_to :user
-* belongs_to :purchaser　
+* belongs_to :purchaser
 
 
 ## Addresses
@@ -85,7 +85,7 @@ Things you may want to cover:
 ### Association
 * belongs_to :user
 * belongs_to :purchaser
-* has_many :images
+* has_many: images
 
 ## Images
 | Column     | Type       | Options      |
