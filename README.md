@@ -30,7 +30,7 @@ Things you may want to cover:
 ### Association
 * has_many :items
 * has_many :comments
-* has_one :purchaser
+* has_many :purchasers
 
 ## Items
 |種類        | Column     | Type       | Options      |追記           |
@@ -47,7 +47,7 @@ Things you may want to cover:
 || user | references | null: false, foreign_key: true ||
 ### Association
 * belongs_to :user
-* belongs_to :purchaser
+* has_one :purchaser
 * has_many :comments
 * has_one_attached: image
 
