@@ -38,12 +38,14 @@ Things you may want to cover:
 |画像|    |  | null: false  | ActiveStorage |
 |商品名| name | string  | null: false ||
 |商品説明| description  | text | null: false ||
-|カテゴリー| category_id   | integer | null: false |Active_hash|
-|状態| condition_id  | integer | null: false, uniqueness: true |Active_hash|
 |送料負担| postage_id | integer | null: false ||
+|価格| price | integer | null: false||
+|カテゴリー| category_id   | integer | null: false |Active_hash|
+|発送までの日数| sipping_day_id | integer | null: false |Active_hash|
+|状態| condition_id  | integer | null: false |Active_hash|
 |発送元地域| prefecture_id | integer | null: false |Active_hash|
-|発送までの日数| handling_time_id | integer | null: false |Active_hash|
-|価格| price | integer | null: false, foreign_key: true ||
+|販売状況| sold | boolean |||
+
 || user | references | null: false, foreign_key: true ||
 ### Association
 * belongs_to :user
