@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :item do
-        association :user
-        association :category
-        association :condition
-        association :postage
-        association :prefecture
-        association :sipping_day
+    association :user
+    association :category
+    association :condition
+    association :postage
+    association :prefecture
+    association :sipping_day
 
     name { '商品名' }
     description { '商品の説明' }
@@ -15,6 +15,5 @@ FactoryBot.define do
     sipping_day_id { '2' }
     prefecture_id { '2' }
     price { '2000' }
-
   end
 end
