@@ -35,7 +35,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'カテゴリーをid:1を選択していると登録できない' do
-        @item.category_id = { id: 1, name: '--' }
+        @item.category_id = { id: 1 }
         @item.valid?
         expect(@item.errors.full_messages).to include("Category is not a number")
       end
@@ -46,7 +46,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
       it '商品の状態でid:1を選択していると登録できない' do
-        @item.condition_id = { id: 1, name: '--' }
+        @item.condition_id = { id: 1 }
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition is not a number")
       end
@@ -57,7 +57,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Postage can't be blank")
       end
       it '配送料の負担でid:1を選択しているとと登録できない' do
-        @item.postage_id = { id: 1, name: '--' }
+        @item.postage_id = { id: 1 }
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage is not a number")
       end
@@ -68,7 +68,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '発送元の地域でid:0を選択していると登録できない' do
-        @item.prefecture_id = { id: 0, name: '--' }
+        @item.prefecture_id = { id: 0}
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture is not a number")
       end
@@ -79,7 +79,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Sipping day can't be blank")
       end
       it '発送までの日数でid:1を選択していると登録できない' do
-        @item.sipping_day_id = { id: 1, name: '--' }
+        @item.sipping_day_id = { id: 1}
         @item.valid?
         expect(@item.errors.full_messages).to include("Sipping day is not a number")
       end
