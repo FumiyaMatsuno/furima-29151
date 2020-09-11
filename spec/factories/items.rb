@@ -1,11 +1,6 @@
 FactoryBot.define do
   factory :item do
     association :user
-    association :category
-    association :condition
-    association :postage
-    association :prefecture
-    association :sipping_day
 
     name { '商品名' }
     description { '商品の説明' }
