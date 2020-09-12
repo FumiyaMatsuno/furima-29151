@@ -37,7 +37,7 @@ RSpec.describe Item, type: :model do
       it 'カテゴリーをid:1を選択していると登録できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
 
       it '商品の状態を選択していないと登録できない' do
@@ -48,7 +48,7 @@ RSpec.describe Item, type: :model do
       it '商品の状態でid:1を選択していると登録できない' do
         @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+        expect(@item.errors.full_messages).to include('Condition must be other than 1')
       end
 
       it '配送料の負担をを選択しないと登録できない' do
@@ -59,7 +59,7 @@ RSpec.describe Item, type: :model do
       it '配送料の負担でid:1を選択しているとと登録できない' do
         @item.postage_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Postage must be other than 1")
+        expect(@item.errors.full_messages).to include('Postage must be other than 1')
       end
 
       it '発送元の地域を選択しないと登録できない' do
@@ -70,7 +70,7 @@ RSpec.describe Item, type: :model do
       it '発送元の地域でid:0を選択していると登録できない' do
         @item.prefecture_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture must be other than 0")
+        expect(@item.errors.full_messages).to include('Prefecture must be other than 0')
       end
 
       it '発送までの日数を選択しないと登録できない' do
@@ -81,7 +81,7 @@ RSpec.describe Item, type: :model do
       it '発送までの日数でid:1を選択していると登録できない' do
         @item.sipping_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Sipping day must be other than 1")
+        expect(@item.errors.full_messages).to include('Sipping day must be other than 1')
       end
 
       it '金額が無いと登録できない' do
