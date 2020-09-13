@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_new, except: [:index, :create, :show]
-  before_action :set_item, only:[:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @items = Item.order('created_at DESC')
@@ -50,5 +50,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
 end
