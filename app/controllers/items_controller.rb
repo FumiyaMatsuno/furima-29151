@@ -25,13 +25,20 @@ class ItemsController < ApplicationController
   def edit
   end
 
+
   def update
     @item.update(item_params)
-    return redirect_to item_path(@item.id) if @item.user_id == current_user.id
+    if @item.user_id == current_user.id
+      return redirect_to item_path(@item.id)
+    end
   end
 
   def destroy
-    return redirect_to '/' if @item.destroy
+    if @item.destroy
+      return redirect_to items_path
+    else
+      render action: :show
+    end
   end
 
   private
