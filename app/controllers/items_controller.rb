@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_new, except: [:index, :create, :show]
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.order('created_at DESC')
@@ -29,6 +29,12 @@ class ItemsController < ApplicationController
     @item.update(item_params)
     if @item.user_id == current_user.id
       return redirect_to item_path(@item.id)
+    end
+  end
+
+  def destroy
+    if @item.destroy
+      return redirect_to '/'
     end
   end
 
