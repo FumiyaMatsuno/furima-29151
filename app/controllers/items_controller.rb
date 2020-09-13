@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_new, except: [:index, :create, :show]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @items = Item.order('created_at DESC')
@@ -7,10 +8,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-  end
-
-  def show
-    @item = Item.find(params[:id])
   end
 
   def create
@@ -22,6 +19,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    @item.update(item_params)
+    if @item.user_id == current_user.id
+      return redirect_to item_path(@item.id)
+    end
+  end
+
   private
 
   def move_to_new
@@ -30,5 +40,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :postage_id, :price, :category_id, :sipping_day_id, :condition_id, :prefecture_id, :image, :sold).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
