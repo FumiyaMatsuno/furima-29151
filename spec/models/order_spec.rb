@@ -29,11 +29,6 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include('Post code is invalid')
       end
-      it '郵便番号にはハイフンが無いと購入うできない' do
-        @order.post_code = nil
-        @order.valid?
-        expect(@order.errors.full_messages).to include('Post code is invalid')
-      end
       it '都道府県は0だと購入できない' do
         @order.prefecture_id = 0
         @order.valid?
