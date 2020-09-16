@@ -9,6 +9,6 @@ FactoryBot.define do
     address { '青山1-1-1' }
     building_name { 'スカイツリー102号室' }
     phone_number { '09012345678' }
-    token {'ppapjp'}
+    token { 'ppapjp' }
   end
 end

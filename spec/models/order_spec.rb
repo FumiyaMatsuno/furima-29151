@@ -22,12 +22,12 @@ RSpec.describe Order, type: :model do
       it '郵便番号にはハイフンが無いと購入うできない' do
         @order.post_code = nil
         @order.valid?
-        expect(@order.errors.full_messages).to include("Post code is invalid")
+        expect(@order.errors.full_messages).to include('Post code is invalid')
       end
       it '都道府県は0だと購入できない' do
         @order.prefecture_id = 0
         @order.valid?
-        expect(@order.errors.full_messages).to include("Prefecture must be other than 0")
+        expect(@order.errors.full_messages).to include('Prefecture must be other than 0')
       end
       it '市区町村が無いと購入できない' do
         @order.city = nil
@@ -47,15 +47,13 @@ RSpec.describe Order, type: :model do
       it '電話番号がハイフン無しの11桁以外は購入できない' do
         @order.phone_number = '090-234-123'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Phone number is invalid")
+        expect(@order.errors.full_messages).to include('Phone number is invalid')
       end
       it 'カードのトークン情報が無いと購入できない' do
         @order.token = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("Token can't be blank")
       end
-      
-    
     end
   end
 end
