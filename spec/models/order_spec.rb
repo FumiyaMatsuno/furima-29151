@@ -19,6 +19,16 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Post code can't be blank")
       end
+      it '郵便番号にはハイフンが無いと購入できない' do
+        @order.post_code = '1234567'
+        @order.valid?
+        expect(@order.errors.full_messages).to include('Post code is invalid')
+      end
+      it '郵便番号は３桁-４桁なければ購入できない' do
+        @order.post_code = '123-45678'
+        @order.valid?
+        expect(@order.errors.full_messages).to include('Post code is invalid')
+      end
       it '郵便番号にはハイフンが無いと購入うできない' do
         @order.post_code = nil
         @order.valid?
