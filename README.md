@@ -30,7 +30,7 @@ Things you may want to cover:
 ### Association
 * has_many :items
 * has_many :comments
-* has_many :purchasers
+* has_many :orders
 
 ## Items
 |種類        | Column     | Type       | Options      |追記           |
@@ -49,43 +49,35 @@ Things you may want to cover:
 || user | references | null: false, foreign_key: true ||
 ### Association
 * belongs_to :user
-* has_one :purchaser
+* has_one :order
 * has_many :comments
 * has_one_attached: image
 
 ## comments
 |種類        | Column     | Type       | Options      |
 |-----------|------------|-------------|--------------|
-|| comment   | string      | null: false  |
-|| user | references | null: false, foreign_key: true  |
-|| item | references | null: false, foreign_key: true  |
+|コメント| comment   | string      | null: false  |
+|ユーザー| user | references | null: false, foreign_key: true  |
+|商品| item | references | null: false, foreign_key: true  |
 ### Association
 * belongs_to :user
 * belongs_to :item
 
-## Addresses
+## Orders
 |種類| Column     | Type       | Options      |追記          |
 |-----------|------------|-------------|--------------|-------------|
-|| post_code   | string      | null: false  ||
-|| prefecture | integer  | null: false |Active_hash|
-|| city  | string | null: false   ||
-|| address    | string     | null: false     ||
-|| building_name   | string   |        ||
-|| phone_number  | string  | null: false, uniqueness: true ||
-|| purchaser | references | null: false, foreign_key: true ||
-### Association
-* belongs_to :purchaser
+|郵便番号| post_code   | string      | null: false  ||
+|地域| prefecture | integer  | null: false |Active_hash|
+|市| city  | string | null: false   ||
+|住所| address    | string     | null: false     ||
+|建物名| building_name   | string   |        ||
+|電話番号| phone_number  | string  | null: false ||
 
-
-## purchasers
-|種類        | Column     | Type       | Options      |
-|-----------|------------|-------------|--------------|
-|| item   | references  | null: false, foreign_key: true  |
-|| user  | references | null: false, foreign_key: true  |
+|商品| item   | references  | null: false, foreign_key: true  |
+|ユーザー| user  | references | null: false, foreign_key: true  |
 ### Association
-* belong_to :item
-* belong_to :user
-* has_one :address
+* belongs_to :user
+* belongs_to :item
 
 
 
