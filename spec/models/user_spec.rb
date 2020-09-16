@@ -129,13 +129,13 @@ describe User, type: :model do
     it 'family_name_kanaが全角でない場合は登録できないこと' do
       @user.family_name_kana = 'ﾔﾏﾀﾞ'
       @user.valid?
-      expect(@user.errors.full_messages).to include('Family name kana is Full-width characters')
+      expect(@user.errors.full_messages).to include('Family name kana is  Full-width katakana characters')
     end
 
     it 'family_name_kanaがカタカナでない場合は登録できないこと' do
       @user.family_name_kana = 'yamada'
       @user.valid?
-      expect(@user.errors.full_messages).to include('Family name kana is Full-width characters')
+      expect(@user.errors.full_messages).to include('Family name kana is  Full-width katakana characters')
     end
 
     it 'first_name_kanaが全角カタカナである場合は登録できること' do
@@ -147,13 +147,13 @@ describe User, type: :model do
     it 'first_name_kanaが全角でない場合は登録できないこと' do
       @user.first_name_kana = 'ﾘｸﾀﾛｳ'
       @user.valid?
-      expect(@user.errors.full_messages).to include('First name kana is Full-width characters')
+      expect(@user.errors.full_messages).to include('First name kana is  Full-width katakana characters')
     end
 
     it 'first_name_kanaがカタカナでない場合は登録できないこと' do
       @user.first_name_kana = 'rikutarou'
       @user.valid?
-      expect(@user.errors.full_messages).to include('First name kana is Full-width characters')
+      expect(@user.errors.full_messages).to include('First name kana is  Full-width katakana characters')
     end
   end
 end
