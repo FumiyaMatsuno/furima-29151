@@ -1,33 +1,44 @@
+
+
 <%= render "shared/second-header"%>
 
 <%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
-<div class='form-wrap'>
-  <div class='form-header'>
-    <h1 class='form-header-text'>
-      会員情報入力
-    </h1>
-  </div>
-  <div class='login-flash-message'>
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">メールアドレス</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">パスワード</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.password_field :password, class:"input-default", id:"password", placeholder:"" %>
-  </div>
-  <div class='login-btn'>
-    <%= f.submit "ログイン" ,class:"login-red-btn" %>
-  </div>
+<div class="single-container">
+  <main class="single-main-login">
+    <section class="login-panel">
+      <div class="login-no-account">
+        <p>アカウントをお持ちで無い方</p>
+        <h1 class='login-red-btn'>
+        <%= link_to new_user_registration_path, class: "btn-def--login" do %>
+          新規会員登録
+        <% end %>
+        </h1>
+      </div>
+      <div class="login-form-inner">
+        <%= link_to user_facebook_omniauth_authorize_path, method: :post, class: "btn-def--facebook" do %>
+          <p><i class="fab fa-facebook-square"></i></p>
+          Facebookでログイン
+        <% end %>
+        <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn-def--google" do %>
+          <p><i class="fab fa-google"></i></p>
+          Googleでログイン
+        <% end %>
+      </div>
+      <div class="login-form-inner">
+        <%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
+          <div class="form-group-session">
+            <%= f.email_field :email, {autofocus: true, autocomplete: "email", placeholder: "mailaddres",class:'form-group__input'} %>
+          </div>
+          <div class="form-group-session">
+            <%= f.password_field :password,{autocomplete: "current-password",placeholder: "password",class:'form-group__input',id:"password"} %>
+          </div>
+          <div class="form-group-session">
+            <%= f.submit 'ログイン', class: "btn-default btn-red", url: "root_path" %>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </main>
 </div>
 <% end %>
 
