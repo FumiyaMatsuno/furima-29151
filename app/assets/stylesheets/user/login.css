@@ -181,11 +181,13 @@ input[type=checkbox] {
 
 .step0{
   padding: 24px 40px 64px;
-  &__contents{
+}
+
+.contents{
     max-width: 343px;
     margin: 0 auto;
-  }
 }
+
 
 
 .btn-def--facebook{
@@ -257,7 +259,7 @@ input[type=checkbox] {
     text-align: center;
     border-radius: 4px;
     margin: 16px 0 0;
-    background: $Blue;
+    background-color: blue;
     color: #fff;
 }
 .btn-def--login{
